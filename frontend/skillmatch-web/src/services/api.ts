@@ -2,7 +2,7 @@
 import type { Project } from '../types';
 
 // Mock de dados baseado na imagem
-const mockProjects: Project[] = [
+let mockProjects: Project[] = [
   {
     id: '1',
     category: 'Engineering',
@@ -52,6 +52,16 @@ export const fetchProjects = async (): Promise<Project[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockProjects);
+    }, 500);
+  });
+};
+
+export const createProject = async (project: Project): Promise<Project> => {
+  // Simulando delay de rede
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      mockProjects = [project, ...mockProjects];
+      resolve(project);
     }, 500);
   });
 };

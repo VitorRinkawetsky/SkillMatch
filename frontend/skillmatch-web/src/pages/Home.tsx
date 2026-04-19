@@ -6,16 +6,13 @@ import { ProjectCard } from '../components/ProjectCard';
 import { fetchProjects } from '../services/api';
 import type { Project, User } from '../types';
 
-export default function Home() {
+interface HomeProps {
+  currentUser: User;
+}
+
+export default function Home({ currentUser }: HomeProps) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  // Mock de usuário logado
-  const currentUser: User = {
-    id: 'user-1',
-    name: 'Alice',
-    avatarInitials: 'A',
-  };
 
   useEffect(() => {
     const loadData = async () => {

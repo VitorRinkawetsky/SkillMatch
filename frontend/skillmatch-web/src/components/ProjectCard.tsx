@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Cpu, BookOpen, Database } from 'lucide-react';
 import type { Project } from '../types';
 
@@ -7,7 +8,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  // Define o ícone com base na categoria
+  const navigate = useNavigate();
+
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Engineering': return <Cpu className="w-4 h-4 text-blue-600" />;
@@ -48,7 +50,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
         
-        <button className="w-full mt-auto bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 rounded-lg transition-colors">
+        <button
+          onClick={() => navigate(`/project/${project.id}`)}
+          className="w-full mt-auto bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 rounded-lg transition-colors"
+        >
           View Details
         </button>
       </div>

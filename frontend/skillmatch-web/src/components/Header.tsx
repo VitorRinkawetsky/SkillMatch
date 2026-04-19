@@ -1,5 +1,6 @@
 import React from 'react';
-import { Plus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Plus, LayoutDashboard } from 'lucide-react';
 import type { User } from '../types';
 
 interface HeaderProps {
@@ -7,6 +8,8 @@ interface HeaderProps {
 }
 
 export function Header({ user }: HeaderProps) {
+  const navigate = useNavigate();
+
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100">
       <div className="flex items-center gap-2">
@@ -17,16 +20,29 @@ export function Header({ user }: HeaderProps) {
       </div>
 
       <div className="flex items-center gap-6">
-        <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors">
+        <button
+          onClick={() => navigate('/dashboard')}
+          className="hidden sm:flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+        >
+          <LayoutDashboard className="w-4 h-4" />
+          Dashboard
+        </button>
+        <button
+          onClick={() => navigate('/create-project')}
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
+        >
           <Plus className="w-4 h-4" />
           Create Project
         </button>
-        <div className="flex items-center gap-2 cursor-pointer">
-          <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white text-sm font-medium">
+        <button
+          onClick={() => navigate('/profile')}
+          className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+        >
+          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-medium">
             {user.avatarInitials}
           </div>
           <span className="text-sm font-medium text-gray-700">{user.name}</span>
-        </div>
+        </button>
       </div>
     </header>
   );
