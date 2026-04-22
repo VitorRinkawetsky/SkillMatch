@@ -48,7 +48,6 @@ let mockProjects: Project[] = [
 ];
 
 export const fetchProjects = async (): Promise<Project[]> => {
-  // Simulando delay de rede
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(mockProjects);
