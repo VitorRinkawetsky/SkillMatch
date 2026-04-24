@@ -28,6 +28,13 @@ const AVAILABLE_SKILLS = [
 
 const CATEGORIES = ["Engineering", "Research", "Data Science"] as const;
 
+// Mapeamento para exibir em português sem quebrar a tipagem/API
+const CATEGORY_LABELS = {
+  "Engineering": "Engenharia",
+  "Research": "Pesquisa",
+  "Data Science": "Data Science",
+};
+
 export default function CreateProject() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
@@ -109,7 +116,7 @@ export default function CreateProject() {
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Projects</span>
+            <span className="text-sm font-medium">Voltar para Projetos</span>
           </button>
         </div>
       </header>
@@ -117,10 +124,10 @@ export default function CreateProject() {
       {/* Conteúdo principal */}
       <main className="max-w-2xl mx-auto px-6 py-10">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
-          Create New Project
+          Criar Novo Projeto
         </h1>
         <p className="text-gray-600 mb-8">
-          Fill in the details below to create your project and find collaborators.
+          Preencha os detalhes abaixo para criar seu projeto e encontrar colaboradores.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -130,14 +137,14 @@ export default function CreateProject() {
               htmlFor="title"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Project Title
+              Título do Projeto
             </label>
             <input
               id="title"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g., AI-Powered Wildlife Monitoring"
+              placeholder="ex: Monitoramento de Vida Selvagem com IA"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700"
               required
             />
@@ -149,19 +156,19 @@ export default function CreateProject() {
               htmlFor="category"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Category
+              Categoria
             </label>
             <select
               id="category"
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => setCategory(e.target.value as (typeof CATEGORIES)[number] | "")}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700 bg-white cursor-pointer"
               required
             >
-              <option value="">Select a category</option>
+              <option value="">Selecione uma categoria</option>
               {CATEGORIES.map((cat) => (
                 <option key={cat} value={cat}>
-                  {cat}
+                  {CATEGORY_LABELS[cat]}
                 </option>
               ))}
             </select>
@@ -173,13 +180,13 @@ export default function CreateProject() {
               htmlFor="description"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Project Description
+              Descrição do Projeto
             </label>
             <textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Describe your project, goals, and what you're looking for in collaborators..."
+              placeholder="Descreva seu projeto, objetivos e o que você busca em colaboradores..."
               rows={6}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700 resize-none"
               required
@@ -192,7 +199,7 @@ export default function CreateProject() {
               htmlFor="skills"
               className="block text-sm font-semibold text-gray-700 mb-2"
             >
-              Skills Needed
+              Skills Necessárias
             </label>
             <div className="relative">
               {/* Skills selecionadas */}
@@ -228,7 +235,7 @@ export default function CreateProject() {
                   onBlur={() =>
                     setTimeout(() => setShowSuggestions(false), 200)
                   }
-                  placeholder="Type to search skills (e.g., Python, React)..."
+                  placeholder="Digite para buscar skills (ex: Python, React)..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700"
                 />
 
@@ -250,7 +257,7 @@ export default function CreateProject() {
               </div>
             </div>
             <p className="text-xs text-gray-500 mt-2">
-              Press Enter or click to add skills
+              Pressione Enter ou clique para adicionar skills
             </p>
           </div>
 
@@ -261,7 +268,7 @@ export default function CreateProject() {
             className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-3 px-6 rounded-lg transition-colors"
           >
             <Plus className="w-5 h-5" />
-            {isSubmitting ? "Creating..." : "Create Project"}
+            {isSubmitting ? "Criando..." : "Criar Projeto"}
           </button>
         </form>
       </main>

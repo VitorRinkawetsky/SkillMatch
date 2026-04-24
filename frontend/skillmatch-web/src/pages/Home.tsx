@@ -37,10 +37,10 @@ export default function Home({ currentUser }: HomeProps) {
         {/* Hero Section */}
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
-            Find Your Next Academic Project. Connect with Skills.
+            Encontre Seu Próximo Projeto Acadêmico. Conecte-se com Suas Skills.
           </h1>
           <p className="text-base text-gray-600">
-            Explore diverse opportunities and find collaborators for your passion.
+            Explore diversas oportunidades e encontre colaboradores para a sua paixão.
           </p>
         </div>
 
@@ -49,7 +49,7 @@ export default function Home({ currentUser }: HomeProps) {
 
         {/* Project Grid */}
         {isLoading ? (
-          <div className="text-center text-gray-500 mt-10">Loading projects...</div>
+          <div className="text-center text-gray-500 mt-10">Carregando projetos...</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (

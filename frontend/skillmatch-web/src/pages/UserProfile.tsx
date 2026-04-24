@@ -80,7 +80,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Projects</span>
+            <span className="text-sm font-medium">Voltar para Projetos</span>
           </button>
         </div>
       </header>
@@ -104,7 +104,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <Edit2 className="w-4 h-4" />
-              Edit Profile
+              Editar Perfil
             </button>
           ) : (
             <div className="flex items-center gap-2">
@@ -113,14 +113,14 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <Save className="w-4 h-4" />
-                Save
+                Salvar
               </button>
               <button
                 onClick={handleCancel}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
               >
                 <X className="w-4 h-4" />
-                Cancel
+                Cancelar
               </button>
             </div>
           )}
@@ -131,13 +131,13 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
           {/* Curso e Universidade */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h2 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-              Academic Information
+              Informações Acadêmicas
             </h2>
             <div className="space-y-4">
               <div>
                 <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
                   <GraduationCap className="w-4 h-4 text-blue-600" />
-                  Course / Major
+                  Curso
                 </label>
                 {isEditing ? (
                   <input
@@ -146,7 +146,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                     onChange={(e) =>
                       setEditedUser({ ...editedUser, course: e.target.value })
                     }
-                    placeholder="e.g., Computer Science"
+                    placeholder="ex: Engenharia de Software"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700"
                   />
                 ) : (
@@ -156,7 +156,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
               <div>
                 <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
                   <Building className="w-4 h-4 text-blue-600" />
-                  University
+                  Universidade
                 </label>
                 {isEditing ? (
                   <input
@@ -168,7 +168,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                         university: e.target.value,
                       })
                     }
-                    placeholder="e.g., MIT"
+                    placeholder="ex: USP, UFSC"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700"
                   />
                 ) : (
@@ -181,7 +181,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
           {/* Bio */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h2 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-              Bio
+              Sobre mim
             </h2>
             {isEditing ? (
               <textarea
@@ -189,13 +189,13 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                 onChange={(e) =>
                   setEditedUser({ ...editedUser, bio: e.target.value })
                 }
-                placeholder="Tell us about yourself, your interests, and what you're looking for..."
+                placeholder="Conte-nos sobre você, seus interesses e o que está buscando..."
                 rows={4}
                 className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700 resize-none"
               />
             ) : (
               <p className="text-gray-700">
-                {user.bio || "No bio added yet."}
+                {user.bio || "Nenhuma biografia adicionada ainda."}
               </p>
             )}
           </div>
@@ -203,7 +203,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
           {/* Skills */}
           <div className="bg-white rounded-xl border border-gray-200 p-6">
             <h2 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-              My Skills
+              Minhas Skills
             </h2>
             {isEditing ? (
               <div>
@@ -250,7 +250,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                     }}
                     onFocus={() => setShowSuggestions(true)}
                     onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-                    placeholder="Type to search skills..."
+                    placeholder="Digite para buscar skills..."
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-gray-700"
                   />
 
@@ -283,7 +283,7 @@ export default function UserProfile({ user, onSave }: UserProfileProps) {
                     </span>
                   ))
                 ) : (
-                  <p className="text-gray-500">No skills added yet.</p>
+                  <p className="text-gray-500">Nenhuma skill adicionada ainda.</p>
                 )}
               </div>
             )}

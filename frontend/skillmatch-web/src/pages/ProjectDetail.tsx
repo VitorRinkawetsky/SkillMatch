@@ -29,8 +29,10 @@ export default function ProjectDetail() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Engineering":
+      case "Engenharia":
         return <Cpu className="w-5 h-5 text-blue-600" />;
       case "Research":
+      case "Pesquisa":
         return <BookOpen className="w-5 h-5 text-blue-600" />;
       case "Data Science":
         return <Database className="w-5 h-5 text-blue-600" />;
@@ -46,7 +48,7 @@ export default function ProjectDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
-        <p className="text-gray-500">Loading project...</p>
+        <p className="text-gray-500">Carregando projeto...</p>
       </div>
     );
   }
@@ -55,12 +57,12 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-600 mb-4">Project not found</p>
+          <p className="text-gray-600 mb-4">Projeto não encontrado</p>
           <button
             onClick={() => navigate("/")}
             className="text-blue-600 hover:text-blue-700 font-medium"
           >
-            ← Back to Home
+            ← Voltar para a Home
           </button>
         </div>
       </div>
@@ -77,7 +79,7 @@ export default function ProjectDetail() {
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Back to Projects</span>
+            <span className="text-sm font-medium">Voltar para Projetos</span>
           </button>
         </div>
       </header>
@@ -100,7 +102,7 @@ export default function ProjectDetail() {
         {/* Descrição */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 mb-6">
           <h2 className="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wide">
-            Project Description
+            Descrição do Projeto
           </h2>
           <p className="text-gray-700 leading-relaxed">
             {project.description}
@@ -110,7 +112,7 @@ export default function ProjectDetail() {
         {/* Skills */}
         <div className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
           <h2 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-            Skills Needed
+            Skills Necessárias
           </h2>
           <div className="flex flex-wrap gap-2">
             {project.skills.map((skill, index) => (
@@ -131,11 +133,11 @@ export default function ProjectDetail() {
             className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
           >
             <Mail className="w-5 h-5" />
-            I'm Interested
+            Tenho Interesse
           </button>
           <button className="flex-1 flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-700 font-medium py-3 px-6 rounded-lg border border-gray-300 transition-colors">
             <ExternalLink className="w-5 h-5" />
-            View Creator Profile
+            Ver Perfil do Criador
           </button>
         </div>
       </main>
