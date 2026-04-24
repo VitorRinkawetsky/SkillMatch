@@ -9,6 +9,18 @@ namespace SkillMatch.Api.Data
         { 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Se quiser garantir que a variação seja única no banco inteiro, pode adicionar este índice:
+            modelBuilder.Entity<SkillAlias>()
+                .HasIndex(a => a.Name)
+                .IsUnique();
+        }
+
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<SkillAlias> SkillAliases { get; set; }
     }
 }
