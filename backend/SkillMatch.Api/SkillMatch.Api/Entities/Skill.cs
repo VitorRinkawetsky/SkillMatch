@@ -13,6 +13,8 @@ namespace SkillMatch.Api.Entities
 
         public bool IsVerified { get; set; } = false;
 
+        public ICollection<Project> Projects { get; set; } = new List<Project>();
+
         public ICollection<SkillAlias> Aliases { get; set; } = new List<SkillAlias>();
     }
 }

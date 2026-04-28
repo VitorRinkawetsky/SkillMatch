@@ -13,7 +13,11 @@ namespace SkillMatch.Api.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Se quiser garantir que a variação seja única no banco inteiro, pode adicionar este índice:
+            modelBuilder.Entity<Project>()
+                .HasMany(p => p.Skills)
+                .WithMany(s => s.Projects)
+                .UsingEntity(j => j.ToTable("ProjectSkills"));
+
             modelBuilder.Entity<SkillAlias>()
                 .HasIndex(a => a.Name)
                 .IsUnique();
