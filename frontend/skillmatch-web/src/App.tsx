@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import CreateProject from "./pages/CreateProject";
@@ -14,7 +14,7 @@ interface AppProps {
 
 function App({ currentUser, onUserUpdate }: AppProps) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home currentUser={currentUser} />} />
         <Route path="/project/:id" element={<ProjectDetail />} />
@@ -23,7 +23,7 @@ function App({ currentUser, onUserUpdate }: AppProps) {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/project/:id/applicants" element={<ProjectApplicants />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
