@@ -1,5 +1,5 @@
 // src/pages/Home.tsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 import { ProjectCard } from '../components/ProjectCard';

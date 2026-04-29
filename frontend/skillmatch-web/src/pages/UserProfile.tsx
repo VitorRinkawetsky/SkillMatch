@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, Edit2, Save, X, Mail, GraduationCap, Building } from "lucide-react";
+import { ArrowLeft, Edit2, Save, X, GraduationCap, Building } from "lucide-react";
 import type { User } from "../types";
 
 const AVAILABLE_SKILLS = [

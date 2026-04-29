@@ -1,5 +1,4 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Copy, UserCircle } from "lucide-react";
 
 // ==============================
@@ -108,7 +107,7 @@ const CandidateCard = ({ candidate }: { candidate: Candidate }) => {
 export default function ProjectApplicants() {
   const navigate = useNavigate();
   // O `id` do projeto virá da URL, pode ser usado para buscar dados dinâmicos da API no futuro:
-  const { id } = useParams<{ id: string }>(); 
+  //const { id } = useParams<{ id: string }>(); 
   
   const totalApplicants = MOCK_CANDIDATES.length;
 
